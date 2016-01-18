@@ -6,19 +6,27 @@ class Temperature
   end
 
   def self.in_celsius(temp)
-    @c
+    new_temp = Temperature.new(c: temp)
   end
 
   def self.in_fahrenheit(temp)
-    @f
+    new_temp = Temperature.new(f: temp)
   end
 
   def to_celsius
-    (@f - 32) * 5.0 / 9.0
+    if @f != nil
+      (@f - 32) * 5.0 / 9.0
+    else
+      @c
+    end
   end
 
   def to_fahrenheit
-    @c * (9.0 / 5.0) + 32
+    if @c != nil
+      @c * (9.0 / 5.0) + 32
+    else
+      @f
+    end
   end
 end
 
