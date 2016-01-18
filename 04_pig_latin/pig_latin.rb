@@ -4,21 +4,27 @@ def translate(string)
   string_array.map! do |string|
     if vowels.include?(string[0])
       string = string + "ay"
+
     elsif string[0] == "q" && string[1] == "u"
       beginning = string.slice!(0, 2)
       string = string + beginning + "ay"
+
     elsif vowels.include?(string[0]) == false && string[1] == "q" && string[2] == "u"
       beginning = string.slice!(0,3)
       string = string + beginning + "ay"
-    elsif vowels.include?(string[0] && string[1] && string[2]) == false
+
+      elsif vowels.include?(string[0]) == false && vowels.include?(string[1]) == false && vowels.include?(string[2]) == false
       beginning = string.slice!(0, 3)
       string = string + beginning + "ay"
+
     elsif vowels.include?(string[0] && string[1]) == false
       beginning = string.slice!(0, 2)
       string = string + beginning + "ay"
+
     elsif  vowels.include?(string[0]) == false
       beginning = string.slice!(0)
       string = string + beginning + "ay"
+
     end
   end
   string = string_array.join(" ")
