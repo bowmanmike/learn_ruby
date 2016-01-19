@@ -1,29 +1,53 @@
+def vowel(string)
+  string = string + "ay"
+end
+
+def qu(string)
+  beginning = string.slice!(0, 2)
+  string = string + beginning + "ay"
+end
+
+def consonant_qu(string)
+  beginning = string.slice!(0,3)
+  string = string + beginning + "ay"
+end
+
+def three_consonants(string)
+  beginning = string.slice!(0, 3)
+  string = string + beginning + "ay"
+end
+
+def two_consonants(string)
+  beginning = string.slice!(0, 2)
+  string = string + beginning + "ay"
+end
+
+def one_consonant(string)
+  beginning = string.slice!(0)
+  string = string + beginning + "ay"
+end
+
 def translate(string)
   vowels = ["a", "e", "i", "o", "u"]
   string_array = string.split(" ")
   string_array.map! do |string|
     if vowels.include?(string[0])
-      string = string + "ay"
+      vowel(string)
 
     elsif string[0] == "q" && string[1] == "u"
-      beginning = string.slice!(0, 2)
-      string = string + beginning + "ay"
+      qu(string)
 
     elsif vowels.include?(string[0]) == false && string[1] == "q" && string[2] == "u"
-      beginning = string.slice!(0,3)
-      string = string + beginning + "ay"
+      consonant_qu(string)
 
       elsif vowels.include?(string[0]) == false && vowels.include?(string[1]) == false && vowels.include?(string[2]) == false
-      beginning = string.slice!(0, 3)
-      string = string + beginning + "ay"
+        three_consonants(string)
 
     elsif vowels.include?(string[0] && string[1]) == false
-      beginning = string.slice!(0, 2)
-      string = string + beginning + "ay"
+      two_consonants(string)
 
     elsif  vowels.include?(string[0]) == false
-      beginning = string.slice!(0)
-      string = string + beginning + "ay"
+      one_consonant(string)
 
     end
   end
