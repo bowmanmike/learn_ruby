@@ -40,7 +40,7 @@ def translate(string)
     elsif vowels.include?(string[0]) == false && string[1] == "q" && string[2] == "u"
       consonant_qu(string)
 
-      elsif vowels.include?(string[0]) == false && vowels.include?(string[1]) == false && vowels.include?(string[2]) == false
+    elsif vowels.include?(string[0]) == false && vowels.include?(string[1]) == false && vowels.include?(string[2]) == false
         three_consonants(string)
 
     elsif vowels.include?(string[0] && string[1]) == false
